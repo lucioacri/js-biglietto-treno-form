@@ -1,0 +1,20 @@
+body {
+  background-color: #b81450;
+}
+
+h2 {
+  color: white;
+}
+
+.red-buttons {
+  background-color: lightgray;
+  color: #b81450;
+}
+
+.white-container {
+  background-color: white;
+  color: #b81450;
+}
+.inputs {
+  border-radius: 10px;
+}

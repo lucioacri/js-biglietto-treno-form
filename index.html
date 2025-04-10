@@ -26,45 +26,78 @@
   </head>
   <body>
     <main>
+      <div class="d-flex justify-content-center">
+        <h2>CALCOLA IL PREZZO DEL TUO BIGLIETTO</h2>
+      </div>
       <form id="ticket-choice">
-        <div class="alert alert-danger d-none" id="error-message">
-          Dati inseriti non validi
+        <div class="container white-container inputs py-4 my-4">
+          <div class="row">
+            <div class="col-12">
+              <div class="alert alert-danger d-none" id="error-message">
+                Dati inseriti non validi
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="d-flex justify-content-center">
+                <label>Nome Cognome</label>
+              </div>
+              <input type="text" id="credentials" class="form-control" />
+            </div>
+            <div class="col-4">
+              <div class="d-flex justify-content-center">
+                <label>Km da percorrere</label>
+              </div>
+              <input type="number" id="distance" class="form-control" />
+            </div>
+            <div class="col-4">
+              <div class="d-flex justify-content-center">
+                <label>Età</label>
+              </div>
+              <div class="input-group">
+                <select class="form-select my-dropdown" id="inputGroupSelect01">
+                  <option selected value="">Scegli età</option>
+                  <option value="minorenne">Minorenne</option>
+                  <option value="maggiorenne">Maggiorenne</option>
+                  <option value="over-65">Over 65</option>
+                </select>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center my-4">
+              <button id="send-button" class="red-buttons mx-3">Genera</button>
+              <button id="delete-button" class="red-buttons mx-3">
+                Annulla
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="mb-2">
-          <label>Nome Cognome</label>
-          <input type="text" id="credentials" class="form-control" />
-        </div>
-        <div class="mb-2">
-          <label>Km da percorrere</label>
-          <input type="number" id="distance" class="form-control" />
-        </div>
-        <label>Età</label>
-        <div class="input-group mb-3">
-          <select class="form-select my-dropdown" id="inputGroupSelect01">
-            <option selected value="">Choose...</option>
-            <option value="1">Minorenne</option>
-            <option value="2">Maggiorenne</option>
-            <option value="3">Over 65</option>
-          </select>
-        </div>
-        <button id="send-button">Genera</button>
-        <button id="delete-button">Annulla</button>
       </form>
-      <div class="container">
-        <div class="row">
-          <div class="col-4">
-            <div class="card" id="name-card">
-              <div class="card-body card-user">card user</div>
+      <div id="hidden-card" class="d-none mt-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="d-flex justify-content-center">
+                <h2>IL TUO BIGLIETTO</h2>
+              </div>
             </div>
           </div>
-          <div class="col-4">
-            <div class="card" id="range-card">
-              <div class="card-body card-range">range</div>
+        </div>
+
+        <div class="container white-container py-4 my-4">
+          <div class="row">
+            <div class="col-4">
+              <div class="card" id="name-card">
+                <div class="card-body card-user">card user</div>
+              </div>
             </div>
-          </div>
-          <div class="col-4">
-            <div class="card" id="price-card">
-              <div class="card-body card-price">price</div>
+            <div class="col-4">
+              <div class="card" id="range-card">
+                <div class="card-body card-range">range</div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="card" id="price-card">
+                <div class="card-body card-price">price</div>
+              </div>
             </div>
           </div>
         </div>
