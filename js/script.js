@@ -7,7 +7,11 @@ const errorAlert = document.getElementById("error-message");
 const ages = document.getElementById("inputGroupSelect01");
 const kmPrice = 0.21;
 let finalPrice = 0;
-let discountedPrice = 0;
+
+// CARDS
+const cardUserName = document.querySelector("#name-card .card-user");
+const cardRange = document.querySelector("#range-card .card-range");
+const cardPrice = document.querySelector("#price-card .card-price");
 
 // console.log(ages);
 
@@ -15,7 +19,7 @@ ticketChoiceForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const fullName = userCredentials.value;
   const fixedDistance = parseInt(kmDistance.value);
-  const agesRange = ages.value;
+  let agesRange = ages.value;
   console.log("range di età", agesRange);
 
   let correctInputs = false;
@@ -30,20 +34,25 @@ ticketChoiceForm.addEventListener("submit", function (event) {
 
   errorAlert.classList.add("d-none");
   if (agesRange === "1") {
+    agesRange = "Minorenne";
     const discount20 = (finalPrice * 20) / 100;
-    discountedPrice += finalPrice - discount20;
-    console.log("prezzo scontato 20", discountedPrice);
+    finalPrice = fixedDistance * kmPrice - discount20;
   }
   if (agesRange === "3") {
+    agesRange = "Over 65";
     const discount40 = (finalPrice * 40) / 100;
-    discountedPrice = finalPrice - discount40;
-    console.log("prezzo scontato 40", discountedPrice);
+    finalPrice = fixedDistance * kmPrice - discount40;
   }
   if (agesRange === "2") {
+    agesRange = "Maggiorenne";
     finalPrice = fixedDistance * kmPrice;
   }
 
   console.log("prezzo finale", finalPrice);
   console.log("nome e cognome", fullName);
   console.log("distanza", fixedDistance);
+
+  cardUserName.innerText = `${fullName}`;
+  cardRange.innerText = `${agesRange}`;
+  cardPrice.innerText = `${finalPrice}`;
 });
