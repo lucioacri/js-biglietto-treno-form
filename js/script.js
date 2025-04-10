@@ -7,7 +7,7 @@ const errorAlert = document.getElementById("error-message");
 const ages = document.getElementById("inputGroupSelect01");
 const kmPrice = 0.21;
 let finalPrice = 0;
-let discountedPrice = 0;
+let discountedPrice;
 
 console.log(ages);
 
@@ -15,7 +15,7 @@ ticketChoiceForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const fullName = userCredentials.value;
   const fixedDistance = parseInt(kmDistance.value);
-  const agesRange = ages.option.value;
+  const agesRange = ages.value;
   console.log(agesRange);
 
   let correctInputs = false;
@@ -28,11 +28,11 @@ ticketChoiceForm.addEventListener("submit", function (event) {
   }
 
   errorAlert.classList.add("d-none");
-  if (agesRange === "Minorenne") {
+  if (agesRange === "1") {
     const discount20 = (finalPrice * 20) / 100;
     discountedPrice = finalPrice - discount20;
   }
-  if (agesRange === "Over 65") {
+  if (agesRange === "3") {
     const discount40 = (finalPrice * 40) / 100;
     discountedPrice = finalPrice - discount40;
   } else {
